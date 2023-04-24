@@ -3,7 +3,6 @@ import 'dart:io';
 import 'item.dart';
 
 Item<T>? insertItem<T>(Item<T>? start, T val, bool Function(T, Item<T>) insertBefore) {
-  print('Creating item: $val');
   Item<T>? current = start, previous;
 
   while (current != null && !insertBefore(val, current)) {
@@ -50,7 +49,7 @@ Item<T>? removeAll<T>(Item<T>? start) {
   return null;
 }
 
-printList<T>(Item<T>? start) {
+printLoop<T>(Item<T>? start) {
   while (start != null) {
     start = start.printGetNext();
   }

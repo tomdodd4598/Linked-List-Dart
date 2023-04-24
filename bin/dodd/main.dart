@@ -14,12 +14,12 @@ bool isNumberString(String str) {
   return numberRegex.hasMatch(str);
 }
 
-bool insertBefore(String val, Item<String> oth) {
-  if (isNumberString(val) && isNumberString(oth.value)) {
-    return BigInt.parse(val) <= BigInt.parse(oth.value);
+bool insertBefore(String val, Item<String> item) {
+  if (isNumberString(val) && isNumberString(item.value)) {
+    return BigInt.parse(val) <= BigInt.parse(item.value);
   }
   else {
-    return val.compareTo(oth.value) < 1;
+    return val.compareTo(item.value) < 1;
   }
 }
 
@@ -31,7 +31,6 @@ main() {
   Item<String>? start;
 
   var begin = true;
-  String? read;
 
   while (true) {
     if (!begin) {
@@ -42,7 +41,7 @@ main() {
     }
 
     print('Awaiting input...');
-    read = stdin.readLineSync();
+    final read = stdin.readLineSync();
     if (read == null) {
       print('Failed to read line!\n');
     }
@@ -70,8 +69,8 @@ main() {
       }
     }
     else if (input == 'l') {
-      print('\nList print...');
-      printList(start);
+      print('\nLoop print...');
+      printLoop(start);
     }
     else if (input == 'i') {
       print('\nIterator print...');

@@ -8,11 +8,12 @@ class Item<T> with IterableMixin {
   final T value;
   Item<T>? next;
 
-  Item(this.value, this.next);
+  Item(this.value, this.next) {
+    print('Creating item: $value');
+  }
 
   Item<T>? printGetNext() {
-    stdout.write(value);
-    stdout.write(next == null ? '\n' : ', ');
+    stdout.write('$value${next == null ? '\n' : ', '}');
     return next;
   }
 
